@@ -2,3 +2,4 @@
 "python"
 "sssd"
 "python3"
+"curl"
