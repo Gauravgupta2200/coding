@@ -1,1 +1,5 @@
-("zlib" "python" "sssd" "python3")
+"zlib"
+"python"
+"sssd"
+"python3"
+"curl"
