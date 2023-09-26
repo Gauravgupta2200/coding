@@ -1,1 +1,1 @@
-"zlib" "python" "sssd" "python3"
+packages=("zlib" "python" "sssd" "python3")
