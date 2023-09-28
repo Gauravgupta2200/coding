@@ -1,5 +1,3 @@
-"zlib"
-"python"
-"sssd"
-"python3"
-"curl"
+# List of packages to update
+zlib
+openssh
