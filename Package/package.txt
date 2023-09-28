@@ -1,3 +1,3 @@
-# List of packages to update
+#List of packages to update
 zlib
 openssh
