@@ -30,10 +30,10 @@ cleanup_temp_dir() {
 }
 
 update_packages() {
+  touch /opt/update_status.txt
   status_file="/opt/update_status.txt"
 
-  > "$status_file"
-
+  
   for package in "${packages[@]}"; do
     # Get the previous installed version
     previous_version=$(rpm -q "$package" --queryformat "%{VERSION}")
@@ -56,5 +56,6 @@ update_packages() {
 
 # Call the cleanup function when the script exits
 trap cleanup_temp_dir EXIT
+
 
 update_packages
