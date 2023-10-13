@@ -13,6 +13,14 @@ package_file_path="Package/package.txt"
 temp_dir=$(mktemp -d)
 git clone --branch "$git_branch_or_commit" "$git_repo_url" "$temp_dir"
 
+# Check if the package file exists in the cloned repository
+package_file="$temp_dir/$package_file_path"
+if [ ! -f "$package_file" ]; then
+  echo "Package file not found in the Git repository: $package_file"
+  rm -rf "$temp_dir"  # Clean up temporary directory
+  exit 1
+fi
+
 # Read the package names from the file into the 'packages' array
 mapfile -t packages < "$package_file"
 
