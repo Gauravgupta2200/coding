@@ -1,0 +1,27 @@
+#!/bin/bash
+
+packages=("zlib" "python" "sssd" "python3" "openssh")
+
+update_packages() {
+  status_file="/opt/update_status.txt"
+
+  > "$status_file"
+
+  for package in "${packages[@]}"; do
+    installed_version=$(rpm -q "$package" --queryformat "%{VERSION}")
+
+    echo "=====================Updating $package====================="
+
+    sudo yum update -y "$package"
+
+    latest_version=$(rpm -q "$package" --queryformat "%{VERSION}")
+
+    if [ $? -eq 0 ]; then
+      echo "$package: Update successful (Installed version: $installed_version, Latest version: $latest_version)" >> "$status_file"
+    else
+      echo "$package: Update failed (Installed version: $installed_version, Latest version: $latest_version)" >> "$status_file"
+    fi
+  done
+}
+
+update_packages
