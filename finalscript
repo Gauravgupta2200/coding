@@ -1,4 +1,3 @@
-[root@ip-10-0-3-209 opt]# cat script.sh 
 #!/bin/bash
 
 # Specify the URL of the Git repository containing the package.txt file
